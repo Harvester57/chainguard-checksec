@@ -10,7 +10,7 @@ WORKDIR /checksec
 RUN python -m venv /checksec/venv
 
 # Cf. https://pypi.org/project/checksec.py/
-RUN pip install checksec.py==0.7.4 --user
+RUN pip install checksec.py==0.7.4
 
 FROM chainguard/python:latest@sha256:92c3483c8ac7eda088e51952b744cce1f3087fe7560a5da672d918b7c57a65fc
 
