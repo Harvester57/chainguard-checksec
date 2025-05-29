@@ -10,6 +10,7 @@ WORKDIR /checksec
 RUN git clone --branch v0.7.4.2 https://github.com/Harvester57/checksec.py.git --depth 1
 
 WORKDIR /checksec/checksec.py
+RUN pip install poetry
 RUN poetry build
 
 RUN python -m venv /checksec/checksec.py/venv
