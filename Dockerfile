@@ -6,14 +6,14 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 ENV PATH="/checksec/venv/bin:$PATH"
 
+WORKDIR /checksec
 RUN git clone --branch v0.7.4.2 https://github.com/Harvester57/checksec.py.git --depth 1
 
-WORKDIR /checksec
-RUN python -m venv /checksec/venv
-
+WORKDIR /checksec/checksec.py
 RUN poetry build
 
-RUN pip install checksec.whl
+RUN python -m venv /checksec/checksec.py/venv
+RUN pip install /checksec/checksec.py/checksec.whl
 
 FROM chainguard/python:latest@sha256:6c48637295791f828deb8056bbcde9b4b252c1191a1c9f23a6cce0a744da4ecf
 
