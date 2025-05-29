@@ -13,8 +13,9 @@ WORKDIR /checksec/checksec.py
 RUN pip install poetry
 ENV PATH="/home/nonroot/.local/bin:$PATH"
 RUN poetry build --output /checksec
+RUN rm -rf /checksec/checksec.py
 
-RUN python -m venv /checksec/checksec.py/venv
+RUN python -m venv /checksec/venv
 RUN pip install /checksec/checksec_py-0.7.4-py3-none-any.whl
 
 FROM chainguard/python:latest@sha256:6c48637295791f828deb8056bbcde9b4b252c1191a1c9f23a6cce0a744da4ecf
