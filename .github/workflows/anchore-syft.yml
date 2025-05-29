@@ -33,4 +33,4 @@ jobs:
           image: localbuild/testimage:latest
           artifact-name: github.sbom.json
           dependency-snapshot: false
-          format: cyclonedx
+          format: cyclonedx-json
