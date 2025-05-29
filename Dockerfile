@@ -1,5 +1,5 @@
 # Cf. https://hub.docker.com/r/chainguard/python/
-FROM chainguard/python:latest-dev@sha256:8077ffcb2bddcef1dbbe874651507b08439b688d35f8c8967218ae24a322c293 as builder
+FROM chainguard/python:latest-dev@sha256:8077ffcb2bddcef1dbbe874651507b08439b688d35f8c8967218ae24a322c293 AS builder
 
 ENV LANG=C.UTF-8
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -30,6 +30,7 @@ ENV TZ="Europe/Paris"
 
 WORKDIR /checksec
 
+ENV LANG=C.UTF-8
 ENV PYTHONUNBUFFERED=1
 ENV PATH="/venv/bin:$PATH"
 
