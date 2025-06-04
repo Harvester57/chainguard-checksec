@@ -1,5 +1,5 @@
 # Cf. https://hub.docker.com/r/chainguard/python/
-FROM chainguard/python:latest-dev@sha256:0bce29e9ce9912725ad2555f13f3fdb21064973041859646509f18cae2025ddf AS builder
+FROM chainguard/python:latest-dev@sha256:789c3a54107a509a208acabc554ec0d2acdf34038f2f804a5597413a89f99bc8 AS builder
 
 ENV LANG=C.UTF-8
 ENV PYTHONDONTWRITEBYTECODE=1
