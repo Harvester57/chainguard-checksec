@@ -7,7 +7,7 @@ ENV PYTHONUNBUFFERED=1
 ENV PATH="/checksec/venv/bin:$PATH"
 
 WORKDIR /checksec
-RUN git clone --branch 0.7.4.3 https://github.com/Harvester57/checksec.py.git --depth 1
+RUN git clone https://github.com/Harvester57/checksec.py.git --depth 1
 
 WORKDIR /checksec/checksec.py
 RUN pip install poetry
