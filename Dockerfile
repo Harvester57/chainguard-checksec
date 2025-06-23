@@ -1,5 +1,5 @@
 # Cf. https://hub.docker.com/r/chainguard/python/
-FROM chainguard/python:latest-dev@sha256:37bdd0309604139f4a3e0e32d8308f860d30ff22bf504df98b87e40b70614661 AS builder
+FROM chainguard/python:latest-dev@sha256:1e7504bdd6ef32989a7014b37ef2e8262c4d74feab017dc1da0a25b7d198e149 AS builder
 
 ENV LANG=C.UTF-8
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -18,7 +18,7 @@ RUN rm -rf /checksec/checksec.py
 RUN python -m venv /checksec/venv
 RUN pip install /checksec/checksec_py-0.7.4-py3-none-any.whl
 
-FROM chainguard/python:latest@sha256:118cb4e86dd4277423720b67003cccea887a1fc6c99007466492c2119bc4d60a
+FROM chainguard/python:latest@sha256:5e1aa298ad3f50f105b9121b1d3a39bdbe33e17a5a28555a1d12a7c91529fc15
 
 LABEL maintainer="florian.stosse@gmail.com"
 LABEL lastupdate="2025-04-27"
