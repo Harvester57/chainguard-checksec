@@ -41,3 +41,4 @@ ENV PYTHONUNBUFFERED=1
 ENV PATH="/venv/bin:$PATH"
 
 COPY --from=builder /checksec/venv /venv
+RUN ls /venv
