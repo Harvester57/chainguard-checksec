@@ -10,11 +10,14 @@ WORKDIR /checksec
 RUN git clone https://github.com/Harvester57/checksec.py.git --depth 1
 
 WORKDIR /checksec/checksec.py
+
+# Install pipx
 RUN python3 -m pip install --user pipx
 RUN python3 -m pipx ensurepath
-RUN source ~/.bashrc
-RUN pipx install poetry
 ENV PATH="/home/nonroot/.local/bin:$PATH"
+
+# Install Poetry and build
+RUN pipx install poetry
 RUN poetry build --output /checksec
 RUN rm -rf /checksec/checksec.py
 
