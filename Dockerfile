@@ -10,13 +10,13 @@ WORKDIR /checksec
 RUN git clone https://github.com/Harvester57/checksec.py.git --depth 1
 
 WORKDIR /checksec/checksec.py
-RUN pip install poetry
+RUN pipx install poetry
 ENV PATH="/home/nonroot/.local/bin:$PATH"
 RUN poetry build --output /checksec
 RUN rm -rf /checksec/checksec.py
 
 RUN python -m venv /checksec/venv
-RUN pip install /checksec/checksec_py-0.7.4-py3-none-any.whl
+RUN pipx install /checksec/checksec_py-0.7.4-py3-none-any.whl
 
 FROM chainguard/python:latest@sha256:1e8da8caa7cd3544aa2e5f3e447f99458ae44fc6a12b5bfe8b47c817367cb45e
 
