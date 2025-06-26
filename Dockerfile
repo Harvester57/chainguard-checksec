@@ -1,5 +1,5 @@
 # Cf. https://hub.docker.com/r/chainguard/python/
-FROM chainguard/python:latest-dev@sha256:1a4f456199de0fcfe5dc420b286fb96251bb826b4e8afedab1da33d4d602a421 AS builder
+FROM chainguard/python:latest-dev@sha256:eb677f2d18459e6ac274e441ad6a7c932faafc79c2cd81efd10c1eeaa96ea4c0 AS builder
 
 ENV LANG=C.UTF-8
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -10,14 +10,8 @@ WORKDIR /checksec
 RUN git clone https://github.com/Harvester57/checksec.py.git --depth 1
 
 WORKDIR /checksec/checksec.py
-
-# Install pipx
-RUN python3 -m pip install --user pipx
-RUN python3 -m pipx ensurepath
-ENV PATH="/home/nonroot/.local/bin:$PATH"
-
-# Install Poetry and build
 RUN pipx install poetry
+ENV PATH="/home/nonroot/.local/bin:$PATH"
 RUN poetry build --output /checksec
 RUN rm -rf /checksec/checksec.py
 
@@ -41,4 +35,3 @@ ENV PYTHONUNBUFFERED=1
 ENV PATH="/venv/bin:$PATH"
 
 COPY --from=builder /checksec/venv /venv
-RUN ls /venv
