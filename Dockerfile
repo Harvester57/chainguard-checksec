@@ -2,7 +2,6 @@
 FROM chainguard/python:latest-dev@sha256:a0768dc21374553aba5889053b2a1f45468eed1dc51fe9a1549339693a50ba54 AS builder
 
 ENV LANG=C.UTF-8
-ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 ENV PATH="/checksec/venv/bin:$PATH"
 
@@ -32,6 +31,9 @@ WORKDIR /checksec
 
 ENV LANG=C.UTF-8
 ENV PYTHONUNBUFFERED=1
-ENV PATH="/venv/bin:$PATH"
+ENV PYTHONDONTWRITEBYTECODE=1
 
 COPY --from=builder /checksec/venv /venv
+ENV PATH="/venv/bin:$PATH"
+
+RUN checksec
