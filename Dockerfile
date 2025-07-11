@@ -27,6 +27,6 @@ ENV PATH="/checksec/venv/bin:$PATH"
 RUN pip install /checksec/checksec_py-0.7.4-py3-none-any.whl --no-cache-dir
 
 # Test run
-RUN checksec
+RUN checksec -h
 
 ENTRYPOINT [ "checksec" ]
