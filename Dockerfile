@@ -23,7 +23,10 @@ LABEL license="MIT license"
 
 WORKDIR /venv
 
+ENV LANG=C.UTF-8
 ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV TZ="Europe/Paris"
 ENV PATH="/venv/bin:$PATH"
 
 COPY --from=builder /checksec/venv /venv
