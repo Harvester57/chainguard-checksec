@@ -13,7 +13,7 @@ ENV PATH="/checksec/venv/bin:$PATH"
 
 RUN pip install checksec-py==0.7.5 --no-cache-dir
 
-FROM cgr.dev/chainguard/python:latest@sha256:f7aa80345ec977bf8c3b166e53355d2049b3b07c2b1d50046745e1fd052e0870
+FROM cgr.dev/chainguard/python:latest@sha256:6faf1846ceff379717bb878b1190d01435627d9d954f72f9e1307b7dde470b58
 
 LABEL maintainer="florian.stosse@gmail.com"
 LABEL lastupdate="2025-07-17"
