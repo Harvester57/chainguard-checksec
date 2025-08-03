@@ -38,6 +38,7 @@ jobs:
             api.github.com:443
             auth.docker.io:443
             cgr.dev:443
+            *.r2.cloudflarestorage.com:443
             files.pythonhosted.org:443
             fulcio.sigstore.dev:443
             ghcr.io:443
