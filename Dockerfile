@@ -1,6 +1,6 @@
 # Cf. https://hub.docker.com/r/chainguard/python/
 ARG BUILDKIT_SBOM_SCAN_STAGE=true
-FROM chainguard/python:latest-dev@sha256:a11ef8fa0ea48517370f26f3c261e8b6788ab2223718e5b21f04a5558a541afd AS builder
+FROM chainguard/python:latest-dev@sha256:acc653950174f718ca4f3fd65161cd4d8e963b708a351b5f32ff1e3b37ec6523 AS builder
 
 ENV LANG=C.UTF-8
 ENV PYTHONUNBUFFERED=1
@@ -14,7 +14,7 @@ ENV PATH="/checksec/venv/bin:$PATH"
 
 RUN pip install checksec-py==0.7.5 --no-cache-dir
 
-FROM cgr.dev/chainguard/python:latest@sha256:6252e33e2d954d5d4188e68c8268545baa5e05d47f62d9bec295e5cc063bd07f
+FROM cgr.dev/chainguard/python:latest@sha256:215e0f214dc7f761932129115eb7d0dc17a3045e4eab4ff4a562334df5d2b709
 
 LABEL maintainer="florian.stosse@gmail.com"
 LABEL lastupdate="2025-07-17"
